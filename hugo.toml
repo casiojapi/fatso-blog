@@ -1,4 +1,4 @@
-baseURL = 'https://blog.fatsolutions.xyz'
+baseURL = 'https://casiojapi.github.io/fatso-blog/'
 languageCode = 'en'
 title = 'fat blog'
 theme = 'fat'
