@@ -32,17 +32,22 @@ jobs:
 
       - uses: actions/upload-pages-artifact@v3
         with:
+          name: github-pages-preview
           path: ./public
 
       - id: deploy
         uses: actions/deploy-pages@v4
         with:
           preview: true
+          artifact_name: github-pages-preview
 
       - name: Comment preview link on PR
         uses: actions/github-script@v7
+        env:
+          PREVIEW_URL: ${{ steps.deploy.outputs.page_url }}
         with:
           script: |
+            const previewUrl = process.env.PREVIEW_URL;
             const prs = await github.rest.pulls.list({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -50,7 +55,6 @@ jobs:
               base: 'master',
               state: 'open'
             });
-            const previewUrl = '${{ steps.deploy.outputs.page_url }}';
             for (const pr of prs.data) {
               const comments = await github.rest.issues.listComments({
                 owner: context.repo.owner,
