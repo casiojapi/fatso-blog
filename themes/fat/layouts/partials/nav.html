@@ -1,0 +1,10 @@
+<nav class="nav">
+    <a href="{{ "/" | absURL }}" class="nav-brand">fat blog</a>
+    <div class="nav-links">
+        <a href="{{ "/" | absURL }}"{{ if .IsHome }} class="active"{{ end }}>home</a>
+        <span class="nav-sep">&middot;</span>
+        <a href="{{ "posts/" | absURL }}"{{ if eq .Section "posts" }}{{ if not .IsPage }} class="active"{{ end }}{{ end }}>posts</a>
+        <span class="nav-sep">&middot;</span>
+        <a href="{{ "tags/" | absURL }}"{{ if eq .Section "tags" }} class="active"{{ end }}>tags</a>
+    </div>
+</nav>

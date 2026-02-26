@@ -1,0 +1,22 @@
+{{ define "main" }}
+<section style="margin-bottom: 80px;">
+    <h2>latest posts</h2>
+    {{ range first 10 (where .Site.RegularPages "Section" "posts") }}
+    <a href="{{ .RelPermalink }}" class="post-card">
+        <h3 class="post-card-title">{{ .Title }}</h3>
+        {{ with .Description }}
+        <p class="post-card-description">{{ . }}</p>
+        {{ end }}
+        <div class="post-card-meta">
+            <span class="meta-label"># {{ .Date.Format "2006-01-02" }}</span>
+            {{ with .Params.tags }}
+            <span class="meta-sep">-</span>
+            {{ range . }}
+            <span class="tag-link">{{ . }}</span>
+            {{ end }}
+            {{ end }}
+        </div>
+    </a>
+    {{ end }}
+</section>
+{{ end }}

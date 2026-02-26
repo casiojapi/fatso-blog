@@ -1,0 +1,21 @@
+baseURL = 'https://blog.fatsolutions.xyz'
+languageCode = 'en'
+title = 'fat blog'
+theme = 'fat'
+
+[taxonomies]
+  tag = 'tags'
+
+[params]
+  description = 'Fat Solutions Blog'
+
+[markup]
+  [markup.highlight]
+    style = 'monokai'
+    noClasses = false
+    lineNos = false
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.extensions]
+      table = true

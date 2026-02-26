@@ -1,0 +1,18 @@
+{{ define "main" }}
+<section style="margin-bottom: 80px;">
+    <h2>tags</h2>
+    {{ range .Data.Terms.Alphabetical }}
+    <div class="tag-group">
+        <a href="{{ .Page.RelPermalink }}" class="tag-group-title">{{ .Page.Title }} ({{ .Count }})</a>
+        <ul class="post-list">
+            {{ range .Pages.ByDate.Reverse }}
+            <li>
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                <span class="post-list-date">{{ .Date.Format "2006-01-02" }}</span>
+            </li>
+            {{ end }}
+        </ul>
+    </div>
+    {{ end }}
+</section>
+{{ end }}
