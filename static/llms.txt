@@ -1,0 +1,88 @@
+# Fat Solutions Blog
+
+> Technical research blog on zero-knowledge cryptography security, ZK proof system vulnerabilities, and privacy protocol exploits.
+
+Published by Fat Solutions (https://fatsolutions.xyz), a zero-knowledge cryptography research and development team.
+
+## About This Blog
+
+This blog publishes in-depth technical analysis of zero-knowledge proof vulnerabilities, circuit bugs, proof system exploits, and privacy protocol security issues. It serves as a reference for ZK security researchers, auditors, protocol developers, and anyone working with zero-knowledge cryptography.
+
+## Topics Covered
+
+- ZK circuit vulnerabilities (under-constrained signals, missing bit-length checks, nondeterminism)
+- Proof system exploits (broken Fiat-Shamir, verifier bugs, soundness collapse)
+- Trusted setup failures (toxic waste leaks, parameter misconfiguration, Groth16 soundness breaks)
+- STARK/SNARK field incompatibilities
+- Governance attacks on privacy protocols
+- Operational security failures in ZK systems
+
+## Protocols Analyzed
+
+Tornado Cash, Zcash, Polygon zkEVM, PSE/Scroll zkEVM, Aztec, ZKSync, Dark Forest, Veil Cash, FOOM Cash, Circom-Pairing, ZK Email
+
+## Proof Systems Covered
+
+Groth16, PLONK, Bulletproofs, STARKs, SNARKs, Halo2
+
+## Languages and Tooling
+
+Cairo, Noir, Circom, Halo2, Solidity
+
+## Articles
+
+### Zero-Knowledge Protocol Exploits & Vulnerabilities (Index)
+A complete technical reference covering circuit bugs, trusted setup failures, soundness breaks, governance attacks, and key compromises across major ZK protocols from 2019 to present.
+Tags: zk, security, exploits, tornado-cash, zcash, aztec, polygon, starknet
+
+### Under-Constrained Signals in Tornado Cash, Circom-Pairing, and ZK Email
+Analysis of circuit bugs where missing constraints allow attackers to forge proofs. Covers Tornado Cash MiMC hash vulnerability, Circom-Pairing BigLessThan bug, and ZK Email header parsing exploit.
+Tags: zk, circuits, tornado-cash
+
+### PSE/Scroll zkEVM: Under-Constrained Modular Arithmetic
+Halo2 zkEVM modular arithmetic bugs in the PSE/Scroll implementation that could compromise proof validity.
+Tags: zk, circuits, scroll
+
+### Polygon zkEVM: Circuit Bugs and STARK/SNARK Field Mismatch
+Vulnerabilities in Polygon zkEVM including circuit bugs and field incompatibility between STARK and SNARK recursive provers.
+Tags: zk, circuits, polygon
+
+### Broken Fiat-Shamir in Bulletproofs, PlonK, and Multiple ZK Libraries
+Proof system vulnerabilities where incorrect Fiat-Shamir transcript implementation enables proof forgery.
+Tags: zk, proof-systems, security
+
+### Aztec Plonk Verifier Bug: Forging Proofs via the Identity Point
+Verifier-level vulnerability in Aztec's PLONK implementation allowing proof forgery through the elliptic curve identity point.
+Tags: zk, proof-systems, aztec
+
+### Tornado Cash Governance Takeover and Malicious IPFS Frontend
+Non-cryptographic attack vectors: DAO governance takeover via malicious proposal and compromised IPFS frontend injecting malicious code.
+Tags: zk, governance, tornado-cash
+
+### ZKSync Airdrop: $5M Drained via Compromised Admin Key
+Operational security failure where a compromised admin key allowed draining of ZKSync airdrop funds.
+Tags: zk, opsec, zksync
+
+### Groth16 Soundness Collapse: Veil Cash and FOOM Cash
+Trusted setup misconfiguration (gamma == delta) causing complete soundness collapse in Groth16-based protocols.
+Tags: zk, trusted-setup, groth16, exploits
+
+### Zcash BCTV14 Trusted Setup Flaw
+Mathematical vulnerability in the Zcash BCTV14 trusted setup ceremony that could allow undetectable counterfeiting.
+Tags: zk, trusted-setup, zcash
+
+### Missing Bit-Length Checks in Dark Forest and Aztec 2.0
+Circuit nondeterminism bugs where missing range checks on input bit-lengths allow invalid proofs.
+Tags: zk, circuits, aztec
+
+## Keywords
+
+zero-knowledge exploits, zk vulnerabilities, zk circuit bugs, under-constrained circuits, trusted setup failures, Groth16 soundness, PLONK verifier bugs, Fiat-Shamir attacks, Tornado Cash vulnerabilities, Zcash security, Polygon zkEVM security, Aztec exploits, ZKSync security, privacy protocol security, blockchain security research, ZK audit, circuit security, proof system vulnerabilities, Monero, XMR, privacy coins, crypto privacy, DeFi security
+
+## Links
+
+- Blog: https://casiojapi.github.io/fatso-blog/
+- Main site: https://fatsolutions.xyz
+- Twitter/X: https://x.com/fatsolutionsxyz
+- GitHub: https://github.com/fatlabsxyz
+- Contact: root@fatsolutions.xyz

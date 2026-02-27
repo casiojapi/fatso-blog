@@ -1,6 +1,98 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO Core -->
+<title>{{ if .IsHome }}Fat Solutions Blog | ZK Security Research & Privacy Engineering{{ else }}{{ .Title }} | Fat Solutions Blog{{ end }}</title>
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
+<meta name="keywords" content="{{ with .Params.tags }}{{ delimit . ", " }}{{ if $.Site.Params.keywords }}, {{ $.Site.Params.keywords }}{{ end }}{{ else }}{{ .Site.Params.keywords }}{{ end }}">
+<meta name="author" content="{{ .Site.Params.author }}">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{{ .Permalink }}">
+
+<!-- OpenGraph -->
+<meta property="og:title" content="{{ if .IsHome }}Fat Solutions Blog | ZK Security Research{{ else }}{{ .Title }}{{ end }}">
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="Fat Solutions Blog">
+<meta property="og:locale" content="en_US">
+{{ if .IsPage -}}
+<meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+<meta property="article:author" content="Fat Solutions">
+<meta property="article:section" content="ZK Security Research">
+{{ range .Params.tags -}}
+<meta property="article:tag" content="{{ . }}">
+{{ end -}}
+{{ end -}}
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="{{ .Site.Params.twitterHandle }}">
+<meta name="twitter:title" content="{{ if .IsHome }}Fat Solutions Blog | ZK Security Research{{ else }}{{ .Title }}{{ end }}">
+<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+
+<!-- JSON-LD Structured Data -->
+{{ if .IsHome -}}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Fat Solutions Blog",
+    "url": "{{ .Site.BaseURL }}",
+    "description": "{{ .Site.Params.description }}",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Fat Solutions",
+        "url": "https://fatsolutions.xyz",
+        "sameAs": [
+            "https://x.com/fatsolutionsxyz",
+            "https://github.com/fatlabsxyz"
+        ]
+    },
+    "about": [
+        "Zero-Knowledge Proof Security",
+        "ZK Circuit Vulnerabilities",
+        "Privacy Protocol Exploits",
+        "Blockchain Cryptography Research",
+        "Tornado Cash",
+        "Zcash",
+        "Privacy Pools",
+        "Monero",
+        "zkEVM Security"
+    ]
+}
+</script>
+{{ else if .IsPage -}}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "{{ .Title }}",
+    "description": "{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}",
+    "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+    {{ with .Lastmod }}"dateModified": "{{ .Format "2006-01-02T15:04:05Z07:00" }}",{{ end }}
+    "url": "{{ .Permalink }}",
+    "author": {
+        "@type": "Organization",
+        "name": "Fat Solutions",
+        "url": "https://fatsolutions.xyz"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Fat Solutions",
+        "url": "https://fatsolutions.xyz"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ .Permalink }}"
+    },
+    "keywords": "{{ with .Params.tags }}{{ delimit . ", " }}{{ end }}",
+    "about": "Zero-Knowledge Cryptography Security"
+}
+</script>
+{{ end -}}
+
+<!-- Fonts & Styles -->
+<link rel="icon" type="image/x-icon" href="{{ "favicon.ico" | absURL }}">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ "css/style.css" | absURL }}">

@@ -1,13 +1,24 @@
 baseURL = 'https://casiojapi.github.io/fatso-blog/'
 languageCode = 'en'
-title = 'fat blog'
+title = 'Fat Solutions Blog | ZK Security Research & Privacy Engineering'
 theme = 'fat'
+
+enableRobotsTXT = true
 
 [taxonomies]
   tag = 'tags'
 
 [params]
-  description = 'Fat Solutions Blog'
+  description = 'Technical research blog by Fat Solutions covering zero-knowledge proof vulnerabilities, ZK circuit security, privacy protocol exploits, and cryptographic engineering. Deep dives into Tornado Cash, Zcash, Polygon zkEVM, Aztec, Starknet, and more.'
+  author = 'Fat Solutions'
+  keywords = 'zero-knowledge, zk exploits, zk security, zk vulnerabilities, circuit bugs, trusted setup, Groth16, PLONK, STARK, SNARK, Tornado Cash, Zcash, privacy pools, Monero, XMR, blockchain privacy, crypto security, zkEVM, Starknet, Aztec, Polygon, privacy research'
+  siteURL = 'https://fatsolutions.xyz'
+  twitterHandle = '@fatsolutionsxyz'
+  githubURL = 'https://github.com/fatlabsxyz'
+
+[sitemap]
+  changefreq = 'weekly'
+  priority = 0.5
 
 [markup]
   [markup.highlight]

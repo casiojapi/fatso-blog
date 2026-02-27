@@ -9,5 +9,15 @@
         {{ block "main" . }}{{ end }}
     </main>
     {{ partial "footer.html" . }}
+    <script>
+        (function() {
+            var base = document.title;
+            var on = true;
+            setInterval(function() {
+                document.title = on ? base + "_" : base + " ";
+                on = !on;
+            }, 600);
+        })();
+    </script>
 </body>
 </html>
